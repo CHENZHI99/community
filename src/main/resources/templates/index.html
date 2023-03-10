@@ -50,15 +50,15 @@
   <title>码问</title>
   <head th:insert="~{import :: head}"></head>
 </head>
-<!--<script type="application/javascript">-->
-<!--  window.onload = function () {-->
-<!--    var closable = window.localStorage.getItem("closable");-->
-<!--    if (closable == "true") {-->
-<!--      window.close();-->
-<!--      window.localStorage.removeItem("closable");-->
-<!--    }-->
-<!--  }-->
-<!--</script>-->
+<script type="application/javascript">
+  window.onload = function () {
+    var closable = window.localStorage.getItem("closable");
+    if (closable == "true") {
+      window.close();
+      window.localStorage.removeItem("closable");
+    }
+  }
+</script>
 <body>
 <div th:insert="~{navigation :: nav}"></div>
 <div class="container-fluid main">
@@ -93,7 +93,7 @@
         <div class="media-body">
           <h5 class="media-heading">
 <!--            <span style="color: #c74747" th:if="${question.sticky >= 1}">[置顶] </span><a th:href="@{'/question/'+ ${question.id}}" th:text="${question.title}"></a>-->
-            <a th:text="${question.title}"></a>
+            <a th:href="@{'/question/'+ ${question.id}}" th:text="${question.title}"></a>
           </h5>
           <span class="text-desc"><span th:text="${question.commentCount}"></span> 个回复 • <span
                   th:text="${question.viewCount}"></span> 次浏览 • <span
@@ -133,17 +133,17 @@
         </ul>
       </nav>
     </div>
-    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-      <div th:insert="~{notice :: notice}"></div>
-      <!--相关问题-->
-      <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <h4>热门标签</h4>
-        <a th:each="tag : ${tags}" th:href="@{/(page=1,search=${search},tag=${tag},sort=${sort})}"
-           th:text="${tag}" class="community-tag"></a>
-      </div>
-      <div th:insert="~{side :: side}"></div>
-    </div>
+<!--    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">-->
+<!--      <div th:insert="~{notice :: notice}"></div>-->
+<!--      &lt;!&ndash;相关问题&ndash;&gt;-->
+<!--      <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
+<!--      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
+<!--        <h4>热门标签</h4>-->
+<!--        <a th:each="tag : ${tags}" th:href="@{/(page=1,search=${search},tag=${tag},sort=${sort})}"-->
+<!--           th:text="${tag}" class="community-tag"></a>-->
+<!--      </div>-->
+<!--      <div th:insert="~{side :: side}"></div>-->
+<!--    </div>-->
   </div>
 </div>
 <div th:insert="~{footer :: foot}"></div>
